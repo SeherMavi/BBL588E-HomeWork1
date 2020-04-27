@@ -1,0 +1,36 @@
+clc;
+close all;
+clear;
+workspace;
+
+Im = imread('SunnyLake.bmp');
+I = rgb2gray(Im);
+
+noiseOnlyImage1 = 1 * randn(300, 400);
+noiseOnlyImage2 = 5 * randn(300, 400);
+noiseOnlyImage3 = 10 * randn(300, 400);
+noiseOnlyImage4 = 20 * randn(300, 400);
+
+noiseAddedImage1 = double(I) + noiseOnlyImage1;
+noiseAddedImage2 = double(I) + noiseOnlyImage2;
+noiseAddedImage3 = double(I) + noiseOnlyImage3;
+noiseAddedImage4 = double(I) + noiseOnlyImage4;
+
+
+%======================================================
+% Now plot everything.
+subplot(2, 2, 1);
+imshow(noiseAddedImage1);
+title('GrayScale Image SD=1', 'FontSize', 15);
+
+subplot(2, 2, 2);
+imshow(noiseAddedImage2);
+title('GrayScale Image SD=5', 'FontSize', 15);
+
+subplot(2, 2, 3);
+imshow(noiseAddedImage3);
+title('GrayScale Image SD=10', 'FontSize', 15);
+
+subplot(2, 2, 4);
+imshow(noiseAddedImage4);
+title('GrayScale Image SD=20', 'FontSize', 15);
