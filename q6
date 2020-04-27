@@ -1,0 +1,79 @@
+clc;
+close all;
+clear;
+workspace;
+
+Im = imread('SunnyLake.bmp');
+ImR = Im(:,:,1);
+ImG = Im(:,:,2);
+ImB = Im(:,:,3);
+
+noiseOnlyImage1 = 1 *randn(300, 400);
+noiseOnlyImage2 = 5 *randn(300, 400);
+noiseOnlyImage3 = 10 *randn(300, 400);
+noiseOnlyImage4 = 20 *randn(300, 400);
+
+noiseAddedImage1 = double(ImR) + noiseOnlyImage1;
+noiseAddedImage2 = double(ImR) + noiseOnlyImage2;
+noiseAddedImage3 = double(ImR) + noiseOnlyImage3;
+noiseAddedImage4 = double(ImR) + noiseOnlyImage4;
+
+noiseAddedImage5 = double(ImG) + noiseOnlyImage1;
+noiseAddedImage6 = double(ImG) + noiseOnlyImage2;
+noiseAddedImage7 = double(ImG) + noiseOnlyImage3;
+noiseAddedImage8 = double(ImG) + noiseOnlyImage4;
+
+noiseAddedImage9 = double(ImB) + noiseOnlyImage1;
+noiseAddedImage10 = double(ImB) + noiseOnlyImage2;
+noiseAddedImage11 = double(ImB) + noiseOnlyImage3;
+noiseAddedImage12 = double(ImB) + noiseOnlyImage4;
+
+%======================================================
+% Now plot everything.
+subplot(3, 4, 1);
+imshow(noiseAddedImage1, []);
+title('Noise-Added Image - Red Channel (SD=1)', 'FontSize', 9);
+
+subplot(3, 4, 2);
+imshow(noiseAddedImage2, []);
+title('Noise-Added Image - Red Channel (SD=5)', 'FontSize', 9);
+
+subplot(3, 4, 3);
+imshow(noiseAddedImage3, []);
+title('Noise-Added Image - Red Channel (SD=10)', 'FontSize', 9);
+
+subplot(3, 4, 4);
+imshow(noiseAddedImage4, []);
+title('Noise-Added Image - Red Channel (SD=20)', 'FontSize', 9);
+
+subplot(3, 4, 5);
+imshow(noiseAddedImage5, []);
+title('Noise-Added Image - Green Channel (SD=1)', 'FontSize', 9);
+
+subplot(3, 4, 6);
+imshow(noiseAddedImage6, []);
+title('Noise-Added Image - Green Channel (SD=5)', 'FontSize', 9);
+
+subplot(3, 4, 7);
+imshow(noiseAddedImage7, []);
+title('Noise-Added Image - Green Channel (SD=10)', 'FontSize', 9);
+
+subplot(3, 4, 8);
+imshow(noiseAddedImage8, []);
+title('Noise-Added Image - Green Channel (SD=20)', 'FontSize', 9);
+
+subplot(3, 4, 9);
+imshow(noiseAddedImage9, []);
+title('Noise-Added Image - Blue Channel (SD=1)', 'FontSize', 9);
+
+subplot(3, 4, 10);
+imshow(noiseAddedImage10, []);
+title('Noise-Added Image - Blue Channel (SD=5)', 'FontSize', 9);
+
+subplot(3, 4, 11);
+imshow(noiseAddedImage11, []);
+title('Noise-Added Image - Blue Channel (SD=10)', 'FontSize', 9);
+
+subplot(3, 4, 12);
+imshow(noiseAddedImage12, []);
+title('Noise-Added Image - Blue Channel (SD=20)', 'FontSize', 9);
