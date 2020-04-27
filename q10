@@ -1,0 +1,30 @@
+clc;
+close all;
+clear;
+workspace;
+
+Im = imread('Figure_1.png') ;
+I = im2double(Im);
+[m n] = size(I);
+Med = [];
+%Modified filter 
+for i=2:m-1
+    for j=2:n-1
+            Med(1) = I(i-1,j-1);
+            Med(2) =I(i-1,j) ;
+            Med(3) = I(i-1,j+1);
+            Med(4) = I(i,j-1);
+            Med(5) = I(i,j+1);
+            Med(6) = I(i+1, j-1);
+            Med(7) = I(i+1,j);
+            Med(8) = I(i+1,j+1);
+            I(i,j) = median(Med);
+    end
+end 
+subplot(1,2,1)
+imshow(Im)
+title('Source image distorted by salt and pepper noise')
+
+subplot(1,2,2)
+imshow(I)
+title('Enhanced image using the median filter (2x2)')
