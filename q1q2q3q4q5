@@ -1,0 +1,8 @@
+clc;
+close all;
+clear;
+workspace;
+
+Im = imread('Figure_1.png');
+I = rgb2gray(Im);
+
